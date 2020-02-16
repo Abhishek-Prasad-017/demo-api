@@ -8,4 +8,4 @@ database:
   dbpassword: "dbpassword"
 
 EXAMPLE_VAR: "variable from config.yml"
-EXAMPLE_PATH: "path from config.yml
+EXAMPLE_PATH: "path from config.yml"
