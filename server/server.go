@@ -18,6 +18,7 @@ type Server struct {
 
 func StartServer(path string, viper *viper.Viper) error {
 	//Create mongodb service
+	log.Println("I am in server.go")
 	mongo, err := service.LoadMongo(viper)
 	if err != nil {
 		log.Fatalf("Could not connect to Mongo %s", err)
@@ -28,9 +29,9 @@ func StartServer(path string, viper *viper.Viper) error {
 		mongoService: mongo,
 	}
 
-	//Generate API paths
+	//Generate API pathsserve
 	s.setupRoutes()
-
+	log.Println("I am in server.go. Routes has been set up")
 	//Start the server for listening
 	return fasthttp.ListenAndServe(path, s.router.Handler)
 
