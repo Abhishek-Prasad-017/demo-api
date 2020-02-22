@@ -24,9 +24,9 @@ func GetSoftwareDetails(name string, s *MongoService) Softwares {
 	c := session.DB("").C(collection)
 
 	// Printing the name of the software collected from the front-end
-	log.Println("Name of software is : ",name)
+	//log.Println("Name of software is : ",name)
 
-	if err = c.Find(bson.M{"softwareName": name}).All(&results); err != nil {
+	if err = c.Find(bson.M{}).All(&results); err != nil {
 		fmt.Println("Failed to read results:", err)
 	}
 
