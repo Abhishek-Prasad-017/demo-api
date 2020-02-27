@@ -18,14 +18,14 @@ func (s *Server) setupRoutes() {
 
 		Route{
 
-			"POST",
+			"GET",
 			"/",
 			s.GetSoftwareDetails,
 		},
 
 	}
 
-	log.Println("I am in routes.go")
+
 	for _, route := range routes {
 		s.router.Handle(route.Method, route.Path, fasthttp.CompressHandler(route.HandlerFunc))
 	}

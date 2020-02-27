@@ -31,8 +31,9 @@ func StartServer(path string, viper *viper.Viper) error {
 
 	//Generate API pathsserve
 	s.setupRoutes()
-	log.Println("I am in server.go. Routes has been set up")
+
 	//Start the server for listening
+	log.Println("Server Listening........")
 	return fasthttp.ListenAndServe(path, s.router.Handler)
 
 }
