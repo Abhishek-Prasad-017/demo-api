@@ -12,15 +12,17 @@ import (
 func GetSoftwareDetails(name string, s *MongoService) Softwares {
 
 	fmt.Println(" I am in database")
+	var results Softwares
 	var err error
-	//var err1 error
+	if s==nil {
+		return results
+	}
 	//fetching the session
 	session := s.sess.Clone()
 	if err != nil {
 		log.Fatalln("Database connection could not be established", err)
+		//return err
 	}
-
-	var results Softwares
 	defer session.Close()
 	c1 := session.DB("").C(collection1)
 	// Printing the name of the software collected from the front-end
